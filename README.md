@@ -1,6 +1,6 @@
 # My React Vite App
 
-Welcome to my React Vite application!
+Blutech Frontend Challenge!
 
 ## Getting Started
 
