@@ -6,12 +6,13 @@ const BASE_URL =
 export async function getPatients() {
   try {
     const response = await axios.get(
-      BASE_URL
+      BASE_URL,
+      { mode: "no-cors" }
       //   {
-      //     headers: {
-      //       authorization: "Basic " + btoa("coalition:skills-test"),
-      //     },
-      //   }
+      // headers: {
+      //   authorization: "Basic " + btoa("coalition:skills-test"),
+      // },
+      // }
     );
     return response.data || [];
   } catch (error) {
