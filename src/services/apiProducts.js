@@ -5,15 +5,7 @@ const BASE_URL =
 
 export async function getPatients() {
   try {
-    const response = await axios.get(
-      BASE_URL,
-      { mode: "no-cors" }
-      //   {
-      // headers: {
-      //   authorization: "Basic " + btoa("coalition:skills-test"),
-      // },
-      // }
-    );
+    const response = await axios.get(BASE_URL);
     return response.data || [];
   } catch (error) {
     if (error.response) throw new Error(`Error occured ${error.message}`);
