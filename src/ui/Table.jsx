@@ -6,17 +6,15 @@ import styled, { css } from "styled-components";
 const StyledTable = styled.ul`
   display: grid;
   grid-template-columns: repeat(11, auto);
-  /* width: 134.8rem; */
-  min-width: 127rem;
+  max-width: 134.8rem;
+  /* min-width: 127rem; */
   margin-bottom: 23rem;
   margin: 0 auto;
+  width: 100%;
 `;
 
 const Head = styled.li`
   background-color: #f0f4fe;
-
-  /* height: 43px; */
-  /* background-color: green; */
   height: 43px;
   color: #595959;
   line-height: 1.6rem;
@@ -37,17 +35,9 @@ const Head = styled.li`
 `;
 const Body = styled.li`
   background-color: white;
-  /* font-family: "Euclid Circular B"; */
-  /* height: 40px; */
-  /* background-color: red; */
   color: #262626;
-  /* border-bottom: 1px solid #444; */
-  /* padding: 1.2rem 1.5rem 1.1rem 0.6rem; */
-  /* padding-bottom: 1rem;
-  padding-top: 1rem; */
   padding-top: 2rem;
   padding-bottom: 1rem;
-  /* column-gap: 2rem; */
   display: flex;
   align-items: center;
   position: relative;
@@ -59,7 +49,6 @@ const Body = styled.li`
     left: 0;
     right: 0;
     border-bottom: 1px solid #f0f0f0;
-    /* padding-bottom: 1rem; */
   }
 
   &:nth-child(11n + 1):after {
@@ -108,7 +97,6 @@ function Table({ isLoading, products, error }) {
   const productsLength = products?.length;
   console.log(productsLength);
   return (
-    // <div>
     <StyledTable>
       <Head>
         <CheckButton type="checkbox" />
@@ -148,7 +136,6 @@ function Table({ isLoading, products, error }) {
         </Fragment>
       ))}
     </StyledTable>
-    // </div>
   );
 }
 

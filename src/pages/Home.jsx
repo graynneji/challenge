@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import React, { useContext, Suspense } from "react";
 import { ProductsContext } from "../context/productsContext";
 import styled from "styled-components";
-import Table from "../ui/Table";
-import Nav from "../ui/Nav";
+const Nav = React.lazy(() => import("../ui/Nav"));
+const Table = React.lazy(() => import("../ui/Table"));
+import Loader from "../ui/Loader";
 
 const Container = styled.div`
   min-width: 144rem;
@@ -10,17 +11,18 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   background-color: #f6f6f6;
-  /* margin-bottom: 2.6rem; */
 `;
 
 function Home() {
   const { products, isLoading, error } = useContext(ProductsContext);
   console.log(products);
   return (
-    <Container>
-      <Nav />
-      <Table products={products} isLoading={isLoading} error={error} />
-    </Container>
+    <Suspense fallback={<Loader />}>
+      <Container>
+        <Nav />
+        <Table products={products} isLoading={isLoading} error={error} />
+      </Container>
+    </Suspense>
   );
 }
 
